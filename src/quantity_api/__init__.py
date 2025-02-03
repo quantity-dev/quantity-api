@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Protocol, TypeAlias, runtime_checkable
 
-Unit: TypeAlias = Any  # TODO: unit-api
+type Unit = Any  # TODO: unit-api
 
 __version__ = "0.0.1.dev0"
 __all__ = ["Quantity"]
