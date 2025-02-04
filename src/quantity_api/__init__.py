@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any, Protocol, TypeAlias, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
+
+import optype as op
 
 type Unit = Any  # TODO: unit-api
 
@@ -16,10 +18,8 @@ class Quantity[V, U: Unit](Protocol):
     @property
     def unit(self) -> U: ...
 
-    def __init__(self, value: V, unit: U, **kw: Any) -> Quantity[V, U]: ...
-
-    def to_unit(self, unit: U, /, **kw: Any) -> Quantity[V, U]: ...
-
     ### Dunder Methods
 
-    def __eq__(self, other: Quantity[V, U]): ...
+    def __eq__[B: op.CanBool](
+        self, other: Quantity[op.CanEq[V, B], U], /
+    ) -> B: ...
