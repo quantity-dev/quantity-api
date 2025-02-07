@@ -18,6 +18,6 @@ class Quantity[V, U: Unit](Protocol):
 
     ### Dunder Methods
 
-    def __eq__[B: op.CanBool](
+    def __eq__[B](
         self, other: Self[op.CanEq[V, B], U], /
     ) -> B: ...
