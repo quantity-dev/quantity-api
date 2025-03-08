@@ -5,6 +5,7 @@ from typing import Any, Final, Protocol, Self, runtime_checkable, Optional
 import optype as op
 
 type Unit = Any  # TODO: unit-api
+type QuantityNamespace = Any  # TODO: quantity-namespace-api
 
 __version__: Final = "0.0.1.dev0"
 __all__ = ["__version__", "Quantity"]
@@ -22,16 +23,14 @@ class Quantity[V, U: Unit](Protocol):
 
     def __quantity_namespace__(
         self: quantity, /, *, api_version: Optional[str] = None
-    ) -> Any:
+    ) -> QuantityNamespace:
         """
         Returns an object that has all the quantity API functions on it.
 
         Parameters
         ----------
-        self: quantity
-            quantity instance.
         api_version: Optional[str]
-            string representing the version of the quantity API specification to be returned, in ``'YYYY.MM'`` form, for example, ``'2020.10'``. If it is ``None``, it should return the namespace corresponding to latest version of the quantity API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: ``None``.
+            string representing the version of the quantity API specification to be returned. If it is ``None``, it should return the namespace corresponding to latest version of the quantity API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: ``None``.
 
         Returns
         -------
