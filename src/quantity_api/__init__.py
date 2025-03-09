@@ -5,10 +5,24 @@ from typing import Any, Final, Protocol, Self, runtime_checkable, Optional
 import optype as op
 
 type Unit = Any  # TODO: unit-api
-type QuantityNamespace = Any  # TODO: quantity-namespace-api
+type Dimension = Any  # TODO: dimension-api
 
 __version__: Final = "0.0.1.dev0"
 __all__ = ["__version__", "Quantity"]
+
+
+@runtime_checkable
+class QuantityNamespace[Q, U: Unit, D: Dimension](Protocol):
+    
+    @staticmethod
+    def asquantity(obj: V, unit: obj) -> Q[V, U[D]]: ...
+
+    @staticmethod
+    def asunit(obj) -> U[D]: ...
+
+    @staticmethod
+    def asdimension(obj) -> D: ...
+
 
 @runtime_checkable
 class Quantity[V, U: Unit](Protocol):
