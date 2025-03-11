@@ -43,7 +43,7 @@ class Quantity[V, U: Unit](Protocol):
 
         Parameters
         ----------
-        api_version: Optional[str]
+        api_version: str or None
             string representing the version of the quantity API specification to be returned. If it is ``None``, it should return the namespace corresponding to latest version of the quantity API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: ``None``.
 
         Returns
