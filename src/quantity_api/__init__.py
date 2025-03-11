@@ -1,6 +1,6 @@
 """Quantity API."""
 
-from typing import Any, Final, Protocol, Self, runtime_checkable, Optional
+from typing import Any, Final, Protocol, Self, runtime_checkable
 
 import optype as op
 
