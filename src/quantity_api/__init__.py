@@ -12,7 +12,7 @@ __all__ = ["__version__", "Quantity"]
 
 
 @runtime_checkable
-class QuantityNamespace[Q, U: Unit, D: Dimension](Protocol):
+class MetrologyNamespace[Q, U: Unit, D: Dimension](Protocol):
     
     @staticmethod
     def asquantity(obj: V, unit: obj) -> Q[V, U[D]]: ...
