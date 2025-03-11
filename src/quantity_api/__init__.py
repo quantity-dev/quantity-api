@@ -37,7 +37,7 @@ class Quantity[V, U: Unit](Protocol):
 
     def __metrology_namespace__(
         self, /, *, api_version: str | None = None
-    ) -> QuantityNamespace:
+    ) -> MetrologyNamespace:
         """
         Returns an object that has all the quantity API functions on it.
 
