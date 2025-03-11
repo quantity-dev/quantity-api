@@ -35,7 +35,7 @@ class Quantity[V, U: Unit](Protocol):
 
     def __eq__[B](self, other: Self[op.CanEq[V, B], U], /) -> B: ...
 
-    def __quantity_namespace__(
+    def __metrology_namespace__(
         self, /, *, api_version: Optional[str] = None
     ) -> QuantityNamespace:
         """
@@ -44,10 +44,10 @@ class Quantity[V, U: Unit](Protocol):
         Parameters
         ----------
         api_version: str or None
-            string representing the version of the quantity API specification to be returned. If it is ``None``, it should return the namespace corresponding to latest version of the quantity API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: ``None``.
+            string representing the version of the metrology API specification to be returned. If it is ``None``, it should return the namespace corresponding to latest version of the metrology API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: ``None``.
 
         Returns
         -------
         out: Any
-            an object representing the quantity API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
+            an object representing the metrology API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
         """
