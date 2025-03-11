@@ -36,7 +36,7 @@ class Quantity[V, U: Unit](Protocol):
     def __eq__[B](self, other: Self[op.CanEq[V, B], U], /) -> B: ...
 
     def __metrology_namespace__(
-        self, /, *, api_version: Optional[str] = None
+        self, /, *, api_version: str | None = None
     ) -> QuantityNamespace:
         """
         Returns an object that has all the quantity API functions on it.
